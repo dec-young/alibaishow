@@ -1,35 +1,51 @@
-// 前台页面
-function getDetailPage(req, res) {
-    res.render('detali.ejs');
-}
+// 简洁写法
 
-function getIndexPage(req, res) {
+// 前台页面
+exports.getDetailPage = (req, res) => {
+    res.render('detail.ejs');
+}
+exports.getIndexPage = (req, res) => {
     res.render('index.ejs');
 }
-
-function getListPage(req, res) {
+exports.getListPage = (req, res) => {
     res.render('list.ejs')
 }
+
 // 后台页面
-function getAdminIndexPage(req, res) {
+exports.getAdminIndexPage = (req, res) => {
     res.render('admin/index.ejs');
 }
-
-function getAdminCategorieslPage(req, res) {
+exports.getAdminCategorieslPage = (req, res) => {
     res.render('admin/categories.ejs');
 }
-
-function getAdminLoginPage(req, res) {
-    res.render('admin/login.ejs')
+exports.getAdminLoginPage = (req, res) => {
+    res.render('admin/login.ejs');
+}
+exports.getAdminCommentsPage = (req, res) => {
+    res.render('admin/comments.ejs');
+}
+exports.getAdminNavmenusPage = (req, res) => {
+    res.render('admin/nav-menus.ejs');
+}
+exports.getAdminPasswordPage = (req, res) => {
+    res.render('admin/password-reset.ejs');
+}
+exports.getAdminPostaddPage = (req, res) => {
+    res.render('admin/post-add.ejs');
+}
+exports.getAdminPostsPage = (req, res) => {
+    res.render('admin/posts.ejs');
+}
+exports.getAdminProfilePage = (req, res) => {
+    res.render('admin/profile.ejs');
+}
+exports.getAdminSettingPage = (req, res) => {
+    res.render('admin/settings.ejs')
+}
+exports.getAdminSlidesPage = (req, res) => {
+    res.render('./admin/slides.ejs');
+}
+exports.getAdminUsersPage = (req, res) => {
+    res.render('admin/users.ejs');
 }
 
-const pagesController = {
-    getIndexPage,
-    getDetailPage,
-    getListPage,
-    getAdminIndexPage,
-    getAdminCategorieslPage,
-    getAdminLoginPage
-}
-
-module.exports = pagesController;

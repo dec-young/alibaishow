@@ -2,29 +2,31 @@
 const express = require('express');
 const router = express.Router();
 // 引入返回页面的控制器
-const pagesController = require('./controllers/pagesController.js'); 
-// const userController = require('./controllers/userController');
+const pagesController = require('./controllers/pagesController.js');
+const userController = require('./controllers/userController.js');
 
-// 后台静态页面
-router.get('/admin', (req, res) => {
-    pagesController.getAdminIndexPage(req,res);
-})
-router.get('/admin/categories', (req, res) => {
-    pagesController.getAdminCategorieslPage(req,res);
-})
-router.get('/admin/login', (req, res) => {
-    pagesController.getAdminLoginPage(req,res);
-})
+//简洁写法
 
-// 前台页面
-router.get('index',(req,res)=>{
-    pagesController.getIndexPage(req,res);
-})
-// router.get('detail',(req,res)=>{
-//     pagesController.getDetailPage(req,res);
-// })
-// router.get('list',(req,res)=>{
-//     pagesController.getListPage(req,res);
-// })
+router.get('/admin', pagesController.getAdminIndexPage)
+    .get('/admin/categories', pagesController.getAdminCategorieslPage)
+    .get('/admin/login', pagesController.getAdminLoginPage)
+    .get('/admin/comments', pagesController.getAdminCommentsPage)
+    .get('/admin/nav-menus', pagesController.getAdminNavmenusPage)
+    .get('/admin/password-reset', pagesController.getAdminPasswordPage)
+    .get('/admin/post-add', pagesController.getAdminPostaddPage)
+    .get('/admin/posts', pagesController.getAdminPostsPage)
+    .get('/admin/profie', pagesController.getAdminProfilePage)
+    .get('/admin/setting', pagesController.getAdminSettingPage)
+    .get('/admin/slides', pagesController.getAdminSlidesPage)
+    .get('/admin/users', pagesController.getAdminUsersPage)
+
+    // 验证登录信息
+    .post('/login',userController.login)
+
+    // 前台页面
+    .get('/index', pagesController.getIndexPage)
+    .get('/detail', pagesController.getDetailPage)
+    .get('/list', pagesController.getListPage)
 
 module.exports = router;
+
