@@ -4,6 +4,8 @@ const router = express.Router();
 // 引入返回页面的控制器
 const pagesController = require('./controllers/pagesController.js');
 const userController = require('./controllers/userController.js');
+const postsController = require('./controllers/postsController.js');
+const cateController = require('./controllers/cateController.js');
 
 //简洁写法
 
@@ -27,6 +29,9 @@ router.get('/admin', pagesController.getAdminIndexPage)
     .get('/index', pagesController.getIndexPage)
     .get('/detail', pagesController.getDetailPage)
     .get('/list', pagesController.getListPage)
+    // 获取文章
+    .get('/getAllPost',postsController.getAllPost)
+    .get('/getAllCate',cateController.getAllCate);
 
 module.exports = router;
 
